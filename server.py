@@ -40,6 +40,7 @@ def token():
   #return "callback(%s);" % json_data
   twilphonetoken = capability.generate()
   return "callback(%s);" % ({'twilioToken': twilphonetoken})
+  #return "%s({'twilioToken':" twilphonetoken })" % _GET_PARAMS('callback')
 
 @app.route('/call', methods=['GET', 'POST'])
 def call():
