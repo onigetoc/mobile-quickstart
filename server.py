@@ -46,7 +46,7 @@ def token():
   #json_data = '{"twilioToken":' + twilphonetoken + '}'
   #json_data = json.dumps({'{"twilioToken":' + twilphonetoken + '}'})
   #json_data = json.dumps({'{"twilioToken":' + twilphonetoken + '}'})
-  json_data = "callback({twilioToken:"twilphonetoken})
+  json_data = 'callback({"twilioToken":' + twilphonetoken + '})'
 
   #callback_name = input(callback='callback').callback
   #web.header('Content-Type', 'application/json') 
