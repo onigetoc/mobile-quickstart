@@ -1,9 +1,9 @@
 import os
-from flask import Flask, request
+from flask import Flask, request, json
 from twilio.util import TwilioCapability
 import twilio.twiml
 
-import json
+#import json
 
 # Account Sid and Auth Token can be found in your account dashboard
 ACCOUNT_SID = 'ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
@@ -41,12 +41,17 @@ def token():
   #json_data = json.dumps({'twilioToken': capability.generate()})
   #return "callback(%s);" % json_data
   
+  print 'Content-Type: application/json\n\n'
+  
   twilphonetoken = capability.generate()
   #json_data = json.dumps({'twilioToken': twilphonetoken)})
   #json_data = '{"twilioToken":' + twilphonetoken + '}'
   #json_data = json.dumps({'{"twilioToken":' + twilphonetoken + '}'})
-  #json_data = json.dumps({'{"twilioToken":' + twilphonetoken + '}'})
-  json_data = 'callback({"twilioToken":' + twilphonetoken + '})'
+  json_data = json.dumps({'{"twilioToken":' + twilphonetoken + '}'})
+  #json_data = 'callback({"twilioToken":' + twilphonetoken + ', mimetype="application/json"})'
+  
+  
+  
 
   #callback_name = input(callback='callback').callback
   #web.header('Content-Type', 'application/json') 
