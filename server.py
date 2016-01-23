@@ -45,7 +45,7 @@ def token():
   
   twilphonetoken = capability.generate()
   #json_data = json.dumps({'twilioToken': twilphonetoken)})
-  json_data = '{"twilioToken":' + twilphonetoken + '}'
+  json_data = '({"twilioToken":' + twilphonetoken + '})'
   #json_data = json.dumps({'{"twilioToken":' + twilphonetoken + '}'})
   #json_data = json.dumps({'{"twilioToken":' + twilphonetoken + '}'})
   #json_data = 'callback({"twilioToken":' + twilphonetoken + '})'
