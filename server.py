@@ -55,8 +55,8 @@ def token():
   callback = request.values.get('callback')
   #callback = request.get('callback')
   
-  return = HttpResponse("%s(%s)" % ( callback,json.dumps(json_data)), mimetype="application/json" 
-  #return '%s(%s)' % (callback, json_data)
+  #return = HttpResponse("%s(%s)" % ( callback,json.dumps(json_data)), mimetype="application/json" 
+  return '%s(%s)' % ((callback, json_data)), mimetype="application/json" 
   
   #json_data = json.dumps({'{"twilioToken":' + twilphonetoken + '}'})
   #return '%s(%s)' % (callback, json_data)
