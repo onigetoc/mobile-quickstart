@@ -38,7 +38,14 @@ def token():
   #import json
   #json_data = json.dumps({'twilioToken': capability.generate()})
   #return "callback(%s);" % json_data
+  
+  print 'Content-Type: application/json\n\n'
+  
+  import json
   twilphonetoken = capability.generate()
+  json_data = json.dumps({'twilioToken': twilphonetoken})
+  print "callback(%s);" % json_data
+  
   #return "callback(%s);" % ({'twilioToken': twilphonetoken})
   #return "%s({'twilioToken':" twilphonetoken })" % _GET_PARAMS('callback')
 
