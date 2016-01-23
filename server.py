@@ -39,8 +39,6 @@ def token():
   #json_data = json.dumps({'twilioToken': capability.generate()})
   #return "callback(%s);" % json_data
   
-  def test(request):
-  
   twilphonetoken = capability.generate()
   #json_data = json.dumps({'twilioToken': twilphonetoken)})
   json_data = '{"twilioToken":' + twilphonetoken + '}'
@@ -49,16 +47,7 @@ def token():
   #web.header('Content-Type', 'application/json') 
   #return '%s(%s)' % (callback_name, twilphonetoken)
   
-  callback='callback'
-  
-  response = HttpResponse("%s(%s)" % (
-    callback,
-    #simplejson.dumps(deals_info)
-    json_data
-    ), mimetype="application/json"
-  )
-  
-  return response
+  return json_data
   
   #b = dumps({'twilioToken': twilphonetoken })
   
