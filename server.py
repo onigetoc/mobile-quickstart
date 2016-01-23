@@ -47,9 +47,9 @@ def token():
   #web.header('Content-Type', 'application/json') 
   #return '%s(%s)' % (callback_name, twilphonetoken)
   
-  #return "callback(%s);" % json_data
+  return "callback(%s);" % json_data
   
-  return "%s(%s)" % "callback(%s);", json_data , mimetype="application/json"
+  #return "%s(%s)" % "callback(%s);", json_data , mimetype="application/json"
   #return response
   #return json_data
   
