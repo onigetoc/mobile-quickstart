@@ -59,7 +59,7 @@ def token():
   #return '%s(%s)' % (callback, json_data)
   
   #json_data = json.dumps({'{"twilioToken":' + twilphonetoken + '}'})
-  return '%s(%s)' % (callback, json_data)
+  #return '%s(%s)' % (callback, json_data)
   
   #callback_name = input(callback='callback').callback
   #web.header('Content-Type', 'application/json') 
