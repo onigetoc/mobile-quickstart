@@ -49,7 +49,10 @@ def token():
   #json_data = json.dumps({'{"twilioToken":' + twilphonetoken + '}'})
   #json_data = json.dumps({'{"twilioToken":' + twilphonetoken + '}'})
   #json_data = 'callback({"twilioToken":' + twilphonetoken + '})'
-  return "callback(%s);" % json_data
+  #return "callback(%s);" % json_data
+  
+  self.response.headers['Content-Type'] = 'application/json'   
+  return json.dump({"twilioToken":twilphonetoken},self.response.out)
   
   
   
