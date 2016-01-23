@@ -49,7 +49,7 @@ def token():
   
   #return "callback(%s);" % json_data
   
-  return HttpResponse("%s(%s)" % ("callback(%s);", json_data ), mimetype="application/json")
+  return "%s(%s)" % ("callback(%s);", json_data , mimetype="application/json")
   #return response
   #return json_data
   
