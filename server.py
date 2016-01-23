@@ -38,6 +38,7 @@ def token():
   #import json
   #json_data = json.dumps({'twilioToken': capability.generate()})
   #return "callback(%s);" % json_data
+  return "callback(%s);" % ({'twilioToken': capability.generate()})
 
 @app.route('/call', methods=['GET', 'POST'])
 def call():
