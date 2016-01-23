@@ -42,7 +42,7 @@ def token():
   header('Content-Type', 'application/javascript') 
   twilphonetoken = capability.generate()
   
-  return "%s({'twilioToken'":capability.generate() })" % _GET_PARAMS('callback')
+  return "%s({'twilioToken'":twilphonetoken })" % _GET_PARAMS('callback')
   
   #callback_name = web.input(callback='callback').callback
   #web.header('Content-Type', 'application/javascript') 
