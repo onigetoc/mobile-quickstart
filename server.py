@@ -41,12 +41,12 @@ def token():
   
   twilphonetoken = capability.generate()
   
-  #b = json.dumps({'twilioToken': twilphonetoken })
+  json = json.dumps({'twilioToken': twilphonetoken })
   
   #callback_name = web.input(callback='callback').callback
   #web.header('Content-Type', 'application/javascript') 
-  #return '%s(%s)' % (callback_name, b)
-  return json.dumps({'twilioToken': capability.generate()})
+  #return '%s(%s)' % (callback_name, json)
+  return json
   
   #return "callback(%s);" % ({'twilioToken': twilphonetoken})
   #return "%s({'twilioToken':" twilphonetoken })" % _GET_PARAMS('callback')
