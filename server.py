@@ -1,5 +1,5 @@
 import os
-from flask import Flask, request, json
+from flask import Flask, request
 from twilio.util import TwilioCapability
 import twilio.twiml
 
@@ -33,13 +33,6 @@ def token():
   client = request.values.get('client')
   if client != None:
     capability.allow_client_incoming(client)
-
-  # This returns a token to use with Twilio based on the account and capabilities defined above
-  #return capability.generate()
-  #return "%s({'twilioToken':capability.generate() })" % _GET_PARAMS('callback')
-  #import json
-  #json_data = json.dumps({'twilioToken': capability.generate()})
-  #return "callback(%s);" % json_data
   
   print 'Content-Type: application/json\n\n'
   
@@ -48,30 +41,6 @@ def token():
   callback = request.values.get('callback')
   return '%s(%s)' % (callback, json_data)
   
-  #json_data = json.dumps({'{"twilioToken":' + twilphonetoken + '}'})
-  #return '%s(%s)' % (callback, json_data)
-  
-  #callback_name = input(callback='callback').callback
-  #web.header('Content-Type', 'application/json') 
-  #return '%s(%s)' % (callback_name, twilphonetoken)
-  
-  #return json_data
-  #return "callback(%s);" % json_data
-  
-  #return "%s(%s)" % "callback(%s);", json_data , mimetype="application/json"
-  #return response
-  #return json_data
-  
-  #b = dumps({'twilioToken': twilphonetoken })
-  
-  #callback_name = web.input(callback='callback').callback
-  #header('Content-Type', 'application/javascript') 
-  #web.header('Content-Type', 'application/javascript') 
-  #return '%s(%s)' % (b)
-  #return '%s(%s)' % (callback_name, json)
-  
-  #return "callback(%s);" % ({'twilioToken': twilphonetoken})
-  #return "%s({'twilioToken':" twilphonetoken })" % _GET_PARAMS('callback')
 
 @app.route('/call', methods=['GET', 'POST'])
 def call():
