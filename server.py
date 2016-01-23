@@ -39,11 +39,9 @@ def token():
   #json_data = json.dumps({'twilioToken': capability.generate()})
   #return "callback(%s);" % json_data
   
-  import web
-  
   twilphonetoken = capability.generate()
 
-  callback_name = web.input(callback='callback').callback
+  callback_name = input(callback='callback').callback
   web.header('Content-Type', 'application/javascript') 
   return '%s(%s)' % (callback_name, twilphonetoken)
   
