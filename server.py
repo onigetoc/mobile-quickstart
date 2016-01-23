@@ -33,12 +33,12 @@ def token():
     capability.allow_client_incoming(client)
 
   # This returns a token to use with Twilio based on the account and capabilities defined above
-  return capability.generate()
+  #return capability.generate()
   #return "%s({'twilioToken':capability.generate() })" % _GET_PARAMS('callback')
   #import json
   #json_data = json.dumps({'twilioToken': capability.generate()})
   #return "callback(%s);" % json_data
-  return "callback(%s);" % ({'twilioToken': capability.generate()})
+  print "callback(%s);" % ({'twilioToken': capability.generate()})
 
 @app.route('/call', methods=['GET', 'POST'])
 def call():
