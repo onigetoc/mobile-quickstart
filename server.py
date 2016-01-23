@@ -49,7 +49,7 @@ def token():
   #web.header('Content-Type', 'application/json') 
   #return '%s(%s)' % (callback_name, twilphonetoken)
   
-  callback = request.GET["callback"]
+  callback='callback'
   
   response = HttpResponse("%s(%s)" % (
     callback,
