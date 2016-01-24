@@ -17,7 +17,7 @@ CLIENT = 'roger'
 
 app = Flask(__name__)
 
-@app.route('/token', methods=['GET', 'POST'])
+@app.route('/token', methods=['GET', 'POST']) 
 def token():
   account_sid = os.environ.get("ACCOUNT_SID", ACCOUNT_SID)
   auth_token = os.environ.get("AUTH_TOKEN", AUTH_TOKEN)
@@ -35,13 +35,17 @@ def token():
   if client != None:
     capability.allow_client_incoming(client)
   
-  print 'Content-Type: application/json\n\n'
+  # This returns a token to use with Twilio based on the account and capabilities defined above
+  ##### GC return TOKEN in JSON
+  #print 'Content-Type: application/json\n\n'
+  #twilphonetoken = capability.generate()
+  #json_data = '{"twilioToken":' + json.dumps(twilphonetoken) + '}'
+  #callback = request.values.get('callback')
+  #return '%s(%s)' % (callback, json_data)
+  #####
   
-  twilphonetoken = capability.generate()
-  json_data = '{"twilioToken":' + json.dumps(twilphonetoken) + '}'
-  callback = request.values.get('callback')
-  return '%s(%s)' % (callback, json_data)
-  
+  # This returns a token to use with Twilio based on the account and capabilities defined above
+  return capability.generate()
 
 @app.route('/call', methods=['GET', 'POST'])
 def call():
