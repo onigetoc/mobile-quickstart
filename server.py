@@ -31,7 +31,7 @@ def token():
 
   # This allows incoming connections to client (if specified)
   #client = request.values.get('client') 
-  #client = 'roger' # test client fixe
+  client = 'roger' # test client fixe
   if client != None:
     capability.allow_client_incoming(client)
   
@@ -57,7 +57,19 @@ def call():
   resp = twilio.twiml.Response()
   from_value = request.values.get('FromNumber')
   to = request.values.get('ToNumber')
-  resp.dial(to, callerId='<Number>'+from_value+'</Number>')
+  if not (from_value and to):
+    return str(resp.say("Invalid request"))
+  from_client = from_value.startswith('client')
+  caller_id = os.environ.get("CALLER_ID", CALLER_ID)
+  if not from_client:
+    # PSTN -> client
+    resp.dial(callerId=from_value).client(CLIENT)
+  elif to.startswith("client:"):
+    # client -> client
+    resp.dial(callerId=from_value).client(to[7:])
+  else:
+    # client -> PSTN
+    resp.dial(to, callerId=caller_id)
   return str(resp)
 
 @app.route('/', methods=['GET', 'POST'])
