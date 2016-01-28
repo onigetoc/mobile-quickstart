@@ -57,19 +57,7 @@ def call():
   resp = twilio.twiml.Response()
   from_value = request.values.get('FromNumber')
   to = request.values.get('ToNumber')
-  if not (from_value and to):
-    return str(resp.say("Invalid request"))
-  from_client = from_value.startswith('client')
-  caller_id = os.environ.get("CALLER_ID", CALLER_ID)
-  if not from_client:
-    # PSTN -> client
-    resp.dial(callerId=from_value).client(CLIENT)
-  elif to.startswith("client:"):
-    # client -> client
-    resp.dial(callerId=from_value).client(to[7:])
-  else:
-    # client -> PSTN
-    resp.dial(to, callerId=caller_id)
+  resp.dial(to, callerId=from_value)
   return str(resp)
 
 @app.route('/', methods=['GET', 'POST'])
