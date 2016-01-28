@@ -55,8 +55,8 @@ def call():
   """           from PSTN, To value is ignored and call is     """
   """           routed to client named CLIENT                  """
   resp = twilio.twiml.Response()
-  from_value = request.values.get('From')
-  to = request.values.get('To')
+  from_value = request.values.get('FromNumber')
+  to = request.values.get('ToNumber')
   if not (from_value and to):
     return str(resp.say("Invalid request"))
   from_client = from_value.startswith('client')
