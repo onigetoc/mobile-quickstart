@@ -13,7 +13,7 @@ AUTH_TOKEN = 'YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY'
 APP_SID = 'APZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ'
 
 CALLER_ID = '+12345678901'
-CLIENT = 'roger'
+CLIENT = 'simon'
 
 app = Flask(__name__)
 
@@ -31,7 +31,7 @@ def token():
 
   # This allows incoming connections to client (if specified)
   #client = request.values.get('client') 
-  client = 'roger' # test client fixe
+  client = 'simon' # test client fixe
   if client != None:
     capability.allow_client_incoming(client)
   
