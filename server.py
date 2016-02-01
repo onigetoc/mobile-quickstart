@@ -31,7 +31,7 @@ def token():
 
   # This allows incoming connections to client (if specified)
   #client = request.values.get('client') 
-  #client = 'roger' # test client fixe
+  client = 'onigetoc' # test client fixe
   if client != None:
     capability.allow_client_incoming(client)
   
