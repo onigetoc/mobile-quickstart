@@ -87,9 +87,6 @@ callers = {
     "+15812000829": "Curious George",
 }
  
-@app.route("/sms", methods=['GET', 'POST'])
-def sms():
- 
   from_number = request.values.get('From', None)
     if from_number in callers:
         message = callers[from_number] + ", thanks for the message!"
