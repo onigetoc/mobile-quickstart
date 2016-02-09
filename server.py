@@ -82,27 +82,24 @@ def welcome():
 @app.route('/sms', methods=['GET', 'POST']) 
 def sms():
 
-  smsFrom = request.values.get('From')
-  smsTo = request.values.get('To')
-  smsBody = request.values.get('Body')
-  smsMedia = request.values.get('MediaUrl')
-    
-  # Try adding your own number to this list!
-  callers = {
-    "+1"+smsTo: "Gino",
-  }
-
+# Try adding your own number to this list!
+callers = {
+    "+15812000829": "Curious George",
+}
+ 
+@app.route("/", methods=['GET', 'POST'])
+def hello_monkey():
+ 
   from_number = request.values.get('From', None)
-  if from_number in callers:
-    message = callers[from_number] + ", '+smsBody+'"
-  else:
-    #message = "Monkey, thanks for the message!"
-    message = callers[from_number] + ", '+smsBody+'"
-
-  resp = twilio.twiml.Response()
-  resp.message(message)
-
-  return str(resp)
+    if from_number in callers:
+        message = callers[from_number] + ", thanks for the message!"
+    else:
+        message = "Monkey, thanks for the message!"
+ 
+    resp = twilio.twiml.Response()
+    resp.message(message)
+ 
+    return str(resp)
 
 if __name__ == "__main__":
   port = int(os.environ.get("PORT", 5000))
