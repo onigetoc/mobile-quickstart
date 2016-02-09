@@ -90,7 +90,8 @@ if appclient != None:
   smsBody = request.values.get('Body')
   smsMedia = request.values.get('MediaUrl')
   
-  message = client.messages.create(to="+1"+smsTo, from_="+1"+smsFrom, body=smsBody)
+  message = client.messages.create(to="+1'+smsTo+'", from_="+1'+smsFrom+'", body="'+smsBody+'")
+  #message = client.messages.create(to="+1"+smsTo, from_="+1"+smsFrom, body=smsBody)
 
 @app.route('/', methods=['GET', 'POST'])
 def welcome():
