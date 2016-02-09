@@ -95,7 +95,7 @@ def hello_monkey():
   if smsMedia is not None and smsMedia != '':
     Media = smsMedia
 
-  message = client.messages.create(to="+1'+smsTo+'", from_="+1'+smsFrom+'", body=Body, MediaUrl=Media)
+  message = client.messages.create(to="+1'+smsTo+'", from_="+1'+smsFrom+'", body=smsBody, MediaUrl=Media)
   #message = client.messages.create(to="+1"+smsTo, from_="+1"+smsFrom, body=smsBody)
 
 @app.route('/', methods=['GET', 'POST'])
