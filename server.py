@@ -71,12 +71,6 @@ def call():
     # client -> PSTN
     resp.dial(to, callerId=caller_id)
   return str(resp)
-
-@app.route('/', methods=['GET', 'POST'])
-def welcome():
-  resp = twilio.twiml.Response()
-  resp.say("Welcome to Twilio")
-  return str(resp)
   
 #GC SEND SMS
 @app.route('/sms', methods=['GET', 'POST']) 
@@ -96,6 +90,12 @@ from_number = request.values.get('From', None)
   resp = twilio.twiml.Response()
   resp.message(message)
 
+  return str(resp)
+
+@app.route('/', methods=['GET', 'POST'])
+def welcome():
+  resp = twilio.twiml.Response()
+  resp.say("Welcome to Twilio")
   return str(resp)
 
 if __name__ == "__main__":
