@@ -1,5 +1,5 @@
 import os
-from flask.blueprints import Flask, request, json
+from flask import Flask.blueprints, request, json
 from twilio.util import TwilioCapability
 import twilio.twiml
 from twilio.rest import TwilioRestClient
