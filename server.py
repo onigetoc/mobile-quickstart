@@ -95,7 +95,7 @@ def hello_monkey():
   if smsMedia is not None and smsMedia != '':
     Media = "['+Media+']"
 
-  message = client.messages.create(to="+1"+smsTo, from_="+1"+smsFrom, body=smsBody, Media)
+  message = client.messages.create(to="+1"+smsTo, from_="+1"+smsFrom, body=smsBody, media_url=['https://demo.twilio.com/owl.png'])
 
 @app.route('/', methods=['GET', 'POST'])
 def welcome():
