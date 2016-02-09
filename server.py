@@ -80,7 +80,7 @@ def welcome():
   
 #GC SEND SMS
 @app.route('/sms', methods=['GET', 'POST']) 
-def sms():
+def hello_monkey():
 
 # Try adding your own number to this list!
 callers = {
