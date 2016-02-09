@@ -79,8 +79,8 @@ def welcome():
   return str(resp)
   
 #GC SEND SMS
-@app.route('/sms', methods=['GET', 'POST']) 
-def sms():
+@app.route('/handle-sms', methods=['GET', 'POST']) 
+def handle-sms():
 # Find these values at https://twilio.com/user/account
   account_sid = os.environ.get("ACCOUNT_SID", ACCOUNT_SID)
   auth_token = os.environ.get("AUTH_TOKEN", AUTH_TOKEN)
