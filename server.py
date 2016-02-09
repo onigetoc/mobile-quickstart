@@ -78,9 +78,19 @@ def call():
 def hello_monkey():
   account_sid = os.environ.get("ACCOUNT_SID", ACCOUNT_SID)
   auth_token = os.environ.get("AUTH_TOKEN", AUTH_TOKEN)
-  
+
+# check source validity
+# appclient = request.values.get('Client')  
+appclient = 'twilphone'
+if appclient != None:
   client = TwilioRestClient(account_sid, auth_token)
-  message = client.messages.create(to="+14184121612", from_="+15812000829", body="Hello there!")
+  
+  smsFrom = request.values.get('From')
+  smsTo = request.values.get('To')
+  smsBody = request.values.get('Body')
+  smsMedia = request.values.get('MediaUrl')
+  
+  message = client.messages.create(to="+1"+smsTo, from_="+1"+smsFrom, body=smsBody)
 
 @app.route('/', methods=['GET', 'POST'])
 def welcome():
