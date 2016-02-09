@@ -93,7 +93,7 @@ def hello_monkey():
   smsMedia = request.values.get('MediaUrl')
   
   if smsMedia is not None and smsMedia != '':
-    Media = [Media]
+    Media = "['+Media+']"
 
   message = client.messages.create(to="+1"+smsTo, from_="+1"+smsFrom, body=smsBody, Media)
 
