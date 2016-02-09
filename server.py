@@ -81,3 +81,21 @@ def welcome():
 if __name__ == "__main__":
   port = int(os.environ.get("PORT", 5000))
   app.run(host='0.0.0.0', port=port, debug=True)
+
+ #GC SEND SMS
+@app.route('/sms', methods=['GET', 'POST']) 
+def sms():
+# Find these values at https://twilio.com/user/account
+  account_sid = os.environ.get("ACCOUNT_SID", ACCOUNT_SID)
+  auth_token = os.environ.get("AUTH_TOKEN", AUTH_TOKEN)
+    
+# This allows outgoing connections to TwiML application
+if request.values.get('To') != '':
+  client = TwilioRestClient(account_sid, auth_token)
+
+  smsFrom = request.values.get('To')
+  smsTo = request.values.get('From')
+  smsBody = request.values.get('Body')
+  smsMedia = request.values.get('MediaUrl')
+
+message = client.messages.create(from_="+1' + smsFrom + '", to="+1' + smsTo + '",body="' + smsTo + '",media_url=['https://demo.twilio.com/owl.png'])
