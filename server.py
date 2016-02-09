@@ -93,9 +93,9 @@ def hello_monkey():
   smsMedia = request.values.get('MediaUrl')
   
   if smsMedia is not None and smsMedia != '':
-    Media = smsMedia
+    Media = [Media]
 
-  message = client.messages.create(to="+1"+smsTo, from_="+1"+smsFrom, body=smsBody, media_url=[Media])
+  message = client.messages.create(to="+1"+smsTo, from_="+1"+smsFrom, body=smsBody, Media)
 
 @app.route('/', methods=['GET', 'POST'])
 def welcome():
