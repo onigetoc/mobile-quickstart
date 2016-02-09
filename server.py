@@ -1,6 +1,7 @@
 import os
 from flask import Flask, request, json
-from twilio.util import TwilioCapability, twilio.twiml
+from twilio.util import TwilioCapability
+import twilio.twiml
 from twilio.rest import TwilioRestClient
 
 #import json
@@ -75,7 +76,6 @@ def call():
 #GC SEND SMS
 @app.route('/sms', methods=['GET', 'POST']) 
 def hello_monkey():
-
   account_sid = os.environ.get("ACCOUNT_SID", ACCOUNT_SID)
   auth_token = os.environ.get("AUTH_TOKEN", AUTH_TOKEN)
   
