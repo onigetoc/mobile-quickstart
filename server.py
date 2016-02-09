@@ -78,14 +78,16 @@ def hello_monkey():
 
 # Try adding your own number to this list!
   callers = {
-    "+15812000829": "Curious George",
+    "+14184121612": "Curious George",
   }
  
   from_number = request.values.get('From', None)
   if from_number in callers:
     message = callers[from_number] + ", thanks for the message!"
   else:
-      message = "Monkey, thanks for the message!"
+    message = callers[from_number] + ", thanks for the message!"
+    
+    #message = "Monkey, thanks for the message!"
 
   resp = twilio.twiml.Response()
   resp.message(message)
