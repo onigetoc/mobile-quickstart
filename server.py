@@ -1,8 +1,7 @@
 import os
-from flask import Flask, request, json
+from flask import Flask, request, json, redirect
 from twilio.util import TwilioCapability
 import twilio.twiml
-from twilio.rest import TwilioRestClient
 
 #import json
 
@@ -86,9 +85,7 @@ def hello_monkey():
   if from_number in callers:
     message = callers[from_number] + ", thanks for the message!"
   else:
-    message = callers[from_number] + ", thanks for the message!"
-    
-    #message = "Monkey, thanks for the message!"
+    message = "Monkey, thanks for the message!"
 
   resp = twilio.twiml.Response()
   resp.message(message)
