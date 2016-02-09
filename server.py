@@ -18,7 +18,7 @@ CLIENT = 'onigetoc'
 
 app = Flask(__name__)
 
-@app.route('/token', methods=['GET', 'POST']) 
+@app.route('/token', methods=['GET', 'POST'])
 def token():
   account_sid = os.environ.get("ACCOUNT_SID", ACCOUNT_SID)
   auth_token = os.environ.get("AUTH_TOKEN", AUTH_TOKEN)
@@ -74,7 +74,7 @@ def call():
   return str(resp)
   
 #GC SEND SMS
-@app.route('/sms', methods=['GET', 'POST']) 
+@app.route('/sms', methods=['GET', 'POST'])
 def hello_monkey():
   account_sid = os.environ.get("ACCOUNT_SID", ACCOUNT_SID)
   auth_token = os.environ.get("AUTH_TOKEN", AUTH_TOKEN)
