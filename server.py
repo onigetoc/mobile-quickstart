@@ -83,7 +83,7 @@ def hello_monkey():
 # appclient = request.values.get('Client')  
 appclient = 'twilphone'
 #if appclient is not None and appclient != '':
-if not appclient:
+if appclient:
   client = TwilioRestClient(account_sid, auth_token)
   
   smsFrom = request.values.get('From')
