@@ -1,7 +1,8 @@
 import os
-from flask import Flask, request, json, redirect
+from flask import Flask, request, json
 from twilio.util import TwilioCapability
 import twilio.twiml
+from twilio.rest import TwilioRestClient
 
 #import json
 
@@ -76,21 +77,11 @@ def call():
 @app.route('/sms', methods=['GET', 'POST']) 
 def hello_monkey():
 
-# Try adding your own number to this list!
-  callers = {
-    "+14184121612": "Curious George",
-  }
- 
-  from_number = request.values.get('From', None)
-  if from_number in callers:
-    message = callers[from_number] + ", thanks for the message!"
-  else:
-    message = "Monkey, thanks for the message!"
-
-  resp = twilio.twiml.Response()
-  resp.message(message)
-
-  return str(resp)
+  account_sid = os.environ.get("ACCOUNT_SID", ACCOUNT_SID)
+  auth_token = os.environ.get("AUTH_TOKEN", AUTH_TOKEN)
+  
+  client = TwilioRestClient(account_sid, auth_token)
+  message = client.messages.create(to="+14184121612", from_="+15812000829", body="Hello there!")
 
 @app.route('/', methods=['GET', 'POST'])
 def welcome():
