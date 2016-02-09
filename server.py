@@ -87,16 +87,16 @@ callers = {
     "+15812000829": "Curious George",
 }
  
-  from_number = request.values.get('From', None)
-    if from_number in callers:
-        message = callers[from_number] + ", thanks for the message!"
-    else:
-        message = "Monkey, thanks for the message!"
- 
-    resp = twilio.twiml.Response()
-    resp.message(message)
- 
-    return str(resp)
+from_number = request.values.get('From', None)
+  if from_number in callers:
+    message = callers[from_number] + ", thanks for the message!"
+  else:
+      message = "Monkey, thanks for the message!"
+
+  resp = twilio.twiml.Response()
+  resp.message(message)
+
+  return str(resp)
 
 if __name__ == "__main__":
   port = int(os.environ.get("PORT", 5000))
