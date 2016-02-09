@@ -87,8 +87,8 @@ callers = {
     "+15812000829": "Curious George",
 }
  
-@app.route("/", methods=['GET', 'POST'])
-def hello_monkey():
+@app.route("/sms", methods=['GET', 'POST'])
+def sms():
  
   from_number = request.values.get('From', None)
     if from_number in callers:
