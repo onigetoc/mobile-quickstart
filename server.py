@@ -79,7 +79,7 @@ def hello_monkey():
   account_sid = os.environ.get("ACCOUNT_SID", ACCOUNT_SID)
   auth_token = os.environ.get("AUTH_TOKEN", AUTH_TOKEN)
   
-  #Media = ''
+  Media = ''
 
 # check source validity
 # appclient = request.values.get('Client')  
@@ -92,10 +92,10 @@ def hello_monkey():
   smsBody = request.values.get('Body')
   smsMedia = request.values.get('MediaUrl')
   
-  #if smsMedia is not None and smsMedia != '':
-    #Media = smsMedia
+  if smsMedia is not None and smsMedia != '':
+    Media = smsMedia
 
-  message = client.messages.create(to="+1"+smsTo, from_="+1"+smsFrom, body=smsBody)
+  message = client.messages.create(to="+1"+smsTo, from_="+1"+smsFrom, body=smsBody, media_url=Media)
 
 @app.route('/', methods=['GET', 'POST'])
 def welcome():
